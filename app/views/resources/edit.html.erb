@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @resource.errors.any? %>
+  <% @resource.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Resource #<%= @resource.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_resource/<%= @resource.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for lesson_id -->
+      <div class="form-group">
+        <label for="lesson_id" class="control-label">
+          Lesson
+        </label>
+
+        <input type="text" id="lesson_id" name="lesson_id" placeholder="Lesson" class="form-control" value="<%= @resource.lesson_id %>">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @resource.description %></textarea>
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @resource.location %>">
+      </div>
+
+      <!-- Label and input for embed_address -->
+      <div class="form-group">
+        <label for="embed_address" class="control-label">
+          Embed address
+        </label>
+
+        <input type="text" id="embed_address" name="embed_address" placeholder="Embed address" class="form-control" value="<%= @resource.embed_address %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Resource
+      </button>
+      or
+      <a href="/resources/<%= @resource.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

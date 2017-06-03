@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @quiz_result.errors.any? %>
+  <% @quiz_result.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Quiz Result #<%= @quiz_result.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_quiz_result/<%= @quiz_result.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @quiz_result.user_id %>">
+      </div>
+
+      <!-- Label and input for quiz_id -->
+      <div class="form-group">
+        <label for="quiz_id" class="control-label">
+          Quiz
+        </label>
+
+        <input type="text" id="quiz_id" name="quiz_id" placeholder="Quiz" class="form-control" value="<%= @quiz_result.quiz_id %>">
+      </div>
+
+      <!-- Label and input for score -->
+      <div class="form-group">
+        <label for="score" class="control-label">
+          Score
+        </label>
+
+        <input type="text" id="score" name="score" placeholder="Score" class="form-control" value="<%= @quiz_result.score %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Quiz Result
+      </button>
+      or
+      <a href="/quiz_results/<%= @quiz_result.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

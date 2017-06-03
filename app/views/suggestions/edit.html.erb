@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @suggestion.errors.any? %>
+  <% @suggestion.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Suggestion #<%= @suggestion.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_suggestion/<%= @suggestion.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @suggestion.user_id %>">
+      </div>
+
+      <!-- Label and input for lesson_id -->
+      <div class="form-group">
+        <label for="lesson_id" class="control-label">
+          Lesson
+        </label>
+
+        <input type="text" id="lesson_id" name="lesson_id" placeholder="Lesson" class="form-control" value="<%= @suggestion.lesson_id %>">
+      </div>
+
+      <!-- Label and input for link_to_resource -->
+      <div class="form-group">
+        <label for="link_to_resource" class="control-label">
+          Link to resource
+        </label>
+
+        <input type="text" id="link_to_resource" name="link_to_resource" placeholder="Link to resource" class="form-control" value="<%= @suggestion.link_to_resource %>">
+      </div>
+
+      <!-- Label and input for reason_for_submitting -->
+      <div class="form-group">
+        <label for="reason_for_submitting" class="control-label">
+          Reason for submitting
+        </label>
+
+        <textarea id="reason_for_submitting" name="reason_for_submitting" placeholder="Reason for submitting" class="form-control" rows="3"><%= @suggestion.reason_for_submitting %></textarea>
+      </div>
+
+      <!-- Label and input for additional_comments -->
+      <div class="form-group">
+        <label for="additional_comments" class="control-label">
+          Additional comments
+        </label>
+
+        <textarea id="additional_comments" name="additional_comments" placeholder="Additional comments" class="form-control" rows="3"><%= @suggestion.additional_comments %></textarea>
+      </div>
+
+      <button class="btn btn-warning">
+        Update Suggestion
+      </button>
+      or
+      <a href="/suggestions/<%= @suggestion.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

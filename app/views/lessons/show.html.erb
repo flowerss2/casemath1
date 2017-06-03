@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Lesson #<%= @lesson.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Lesson name</dt>
+      <dd><%= @lesson.lesson_name %></dd>
+
+      <dt>Video</dt>
+      <dd><%= @lesson.video_id %></dd>
+
+      <dt>Resources</dt>
+      <dd><%= @lesson.resources_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/lessons" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/lessons/<%= @lesson.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_lesson/<%= @lesson.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
