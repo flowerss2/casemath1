@@ -10,16 +10,14 @@
     <table class="table table-striped table-hover">
       <tr>
         <th>Lesson name</th>
-        <th>Video</th>
-        <th>Resources</th>
+
         <th>Actions</th>
       </tr>
 
       <% @lessons.each do |lesson| %>
       <tr>
-        <td><%= lesson.lesson_name %></td>
-        <td><%= lesson.video_id %></td>
-        <td><%= lesson.resources_id %></td>
+        <td><a href="/lessons/<%= lesson.id %>"><%= lesson.lesson_name %></a></td>
+
         <td>
           <a href="/lessons/<%= lesson.id %>" class="btn btn-primary">Show</a>
           <a href="/lessons/<%= lesson.id %>/edit" class="btn btn-warning">Edit</a>
