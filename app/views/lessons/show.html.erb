@@ -9,10 +9,14 @@
       <dd><%= @lesson.lesson_name %></dd>
 
       <dt>Video</dt>
-      <dd><%= @lesson.video_id %></dd>
+      <dd><% @lesson.videos.each do |video| %>
+        <embed height="315px" width="560px" src="<%= video.embed_address %>">
+      <% end  %></dd>
 
       <dt>Resources</dt>
-      <dd><%= @lesson.resources_id %></dd>
+      <dd><dd><% @lesson.resources.each do |resource| %>
+        <embed height="315px" width="560px" src="<%= resource.embed_address %>">
+      <% end  %></dd></dd>
 
     </dl>
 
@@ -28,4 +32,7 @@
       </a>
     </div>
   </div>
+  <a href="/videos/new" class="btn btn-primary">Add a video</a>
+  <a href="/resources/new" class="btn btn-success">Add a resource or document</a>
+  <a href="/mini_quizzes/new" class="btn btn-info">Add a miniquiz</a>
 </div>
