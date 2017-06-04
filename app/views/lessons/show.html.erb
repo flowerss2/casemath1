@@ -1,21 +1,19 @@
 <div class="page-header">
-  <h3>Lesson #<%= @lesson.id %></h3>
+  <h1><%= @lesson.lesson_name %></h1>
 </div>
 
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>Lesson name</dt>
-      <dd><%= @lesson.lesson_name %></dd>
-
+      
       <dt>Video</dt>
       <dd><% @lesson.videos.each do |video| %>
-        <embed height="315px" width="560px" src="<%= video.embed_address %>">
+        <embed height="450px" width="800px" src="<%= video.embed_address %>">
       <% end  %></dd>
 
       <dt>Resources</dt>
       <dd><dd><% @lesson.resources.each do |resource| %>
-        <embed height="315px" width="560px" src="<%= resource.embed_address %>">
+        <embed height="550px" width="800px" src="<%= resource.embed_address %>">
       <% end  %></dd></dd>
 
     </dl>
