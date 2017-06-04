@@ -25,7 +25,7 @@ class SchoolsController < ApplicationController
     save_status = @school.save
 
     if save_status == true
-      redirect_to("/schools/#{@school.id}", :notice => "School created successfully.")
+      redirect_to("/schools/new", :notice => "School created successfully.")
     else
       render("schools/new.html.erb")
     end
