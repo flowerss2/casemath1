@@ -7,7 +7,7 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.find(params[:id])
-
+@newcomment = Comment.new
     render("lessons/show.html.erb")
   end
 
