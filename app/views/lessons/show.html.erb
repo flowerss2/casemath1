@@ -24,13 +24,14 @@
           <div class="form-group">
       <label for="comment" class="control-label">
                         Add a Comment
-                      </label>
-                      <input type="text" id="comment" name="body" placeholder="Add a comment..." class="form-control" value="<%= @newcomment.body %>">
-                      <input name="lesson_id" type="hidden" value="<%= @lesson.id %>">
-                      <input name="user_id" type="hidden" value="<%= current_user.id %>">
-                            <button class="btn btn-success">
-                                <i class="fa fa-commenting-o" aria-hidden="true"></i>
-                            </button></form>
+      </label>
+          <input type="text" id="comment" name="body" placeholder="Add a comment..." class="form-control" value="<%= @newcomment.body %>">
+          <input name="lesson_id" type="hidden" value="<%= @lesson.id %>">
+          <input name="user_id" type="hidden" value="<%= current_user.id %>">
+        <button class="btn btn-success">
+          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+        </button>
+      </form>
     <% @lesson.comments.each do |comment| %>
       <div class="panel panel-default">
         <div class="panel-heading">
