@@ -20,11 +20,11 @@
 
       <!-- Label and input for user_id -->
       <div class="form-group">
-        <label for="user_id" class="control-label">
+        <!-- <label for="user_id" class="control-label">
           User
-        </label>
+        </label> -->
 
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @favorite.user_id %>">
+        <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
       </div>
 
       <!-- Label and input for lesson_id -->
@@ -33,7 +33,7 @@
           Lesson
         </label>
 
-        <input type="text" id="lesson_id" name="lesson_id" placeholder="Lesson" class="form-control" value="<%= @favorite.lesson_id %>">
+        <%= select_tag(:lesson_id, options_from_collection_for_select(Lesson.all, :id, :lesson_name), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
