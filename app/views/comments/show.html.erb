@@ -5,11 +5,9 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>User</dt>
-      <dd><%= @comment.user_id %></dd>
 
       <dt>Lesson</dt>
-      <dd><%= @comment.lesson_id %></dd>
+      <dd><%= @comment.lesson.lesson_name %></dd>
 
       <dt>Body</dt>
       <dd><%= @comment.body %></dd>
