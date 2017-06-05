@@ -24,16 +24,16 @@
           School
         </label>
 
-        <input type="text" id="school_id" name="school_id" placeholder="School" class="form-control" value="<%= @enrollment.school_id %>">
+        <%= select_tag(:school_id, options_from_collection_for_select(School.all, :id, :school_name), :class => "form-control") %>
       </div>
 
       <!-- Label and input for user_id -->
       <div class="form-group">
-        <label for="user_id" class="control-label">
+        <!-- <label for="user_id" class="control-label">
           User
-        </label>
+        </label> -->
 
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @enrollment.user_id %>">
+        <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
       </div>
 
       <button class="btn btn-success">
