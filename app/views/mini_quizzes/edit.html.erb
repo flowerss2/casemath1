@@ -24,7 +24,7 @@
           Lesson
         </label>
 
-        <input type="text" id="lesson_id" name="lesson_id" placeholder="Lesson" class="form-control" value="<%= @mini_quiz.lesson_id %>">
+            <%= select_tag(:lesson_id, options_from_collection_for_select(Lesson.all, :id, :lesson_name), :class => "form-control") %>
       </div>
 
       <!-- Label and input for description -->

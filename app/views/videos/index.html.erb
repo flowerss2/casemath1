@@ -18,7 +18,7 @@
 
       <% @videos.each do |video| %>
       <tr>
-        <td><%= video.lesson_id %></td>
+        <td><%= video.lesson.lesson_name %></td>
         <td><%= video.location %></td>
         <td><%= video.description %></td>
         <td><%= video.embed_address %></td>

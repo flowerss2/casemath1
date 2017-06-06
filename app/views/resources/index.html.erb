@@ -11,17 +11,15 @@
       <tr>
         <th>Lesson</th>
         <th>Description</th>
-        <th>Location</th>
         <th>Embed address</th>
         <th>Actions</th>
       </tr>
 
       <% @resources.each do |resource| %>
       <tr>
-        <td><%= resource.lesson_id %></td>
+        <td><%= resource.lesson.lesson_name %></td>
         <td><%= resource.description %></td>
-        <td><%= resource.location %></td>
-        <td><%= resource.embed_address %></td>
+        <td><%= truncate(resource.embed_address) %></td>
         <td>
           <a href="/resources/<%= resource.id %>" class="btn btn-primary">Show</a>
           <a href="/resources/<%= resource.id %>/edit" class="btn btn-warning">Edit</a>

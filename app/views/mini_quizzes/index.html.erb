@@ -18,7 +18,7 @@
 
       <% @mini_quizzes.each do |mini_quiz| %>
       <tr>
-        <td><%= mini_quiz.lesson_id %></td>
+        <td><%= mini_quiz.lesson.lesson_name %></td>
         <td><%= mini_quiz.description %></td>
         <td><%= mini_quiz.location %></td>
         <td><%= mini_quiz.embed_address %></td>
