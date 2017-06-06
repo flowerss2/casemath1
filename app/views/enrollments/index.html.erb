@@ -1,7 +1,6 @@
 <div class="page-header">
   <h1>
     Enrollments
-    <a href="/enrollments/new" class="btn btn-lg btn-success">New Enrollment</a>
   </h1>
 </div>
 
@@ -15,13 +14,16 @@
 
       <% @enrollments.each do |enrollment| %>
       <tr>
-        <td><%= enrollment.school.school_name %></td>
+        <td><% if current_user.id == enrollment.user_id %>
+          <%= current_user.enrollment.school.school_name %></td>
 
         <td>
           <a href="/enrollments/<%= enrollment.id %>" class="btn btn-primary">Show</a>
           <a href="/enrollments/<%= enrollment.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_enrollment/<%= enrollment.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
+        <% else %>
+        <% end %>
       </tr>
       <% end %>
     </table>
