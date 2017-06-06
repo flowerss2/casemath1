@@ -16,6 +16,7 @@
         <embed height="550px" width="800px" src="<%= resource.embed_address %>">
       <% end  %></dd></dd>
 
+<div class="panel">
       <form action="/create_comment" method="post">
                     <!-- Hidden input for authenticity token to protect from forgery -->
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
@@ -28,10 +29,11 @@
           <input type="text" id="comment" name="body" placeholder="Add a comment..." class="form-control" value="<%= @newcomment.body %>">
           <input name="lesson_id" type="hidden" value="<%= @lesson.id %>">
           <input name="user_id" type="hidden" value="<%= current_user.id %>">
-        <button class="btn btn-success">
+        <div class="btn-group-large"><button class="btn btn-primary btn-block">
           <i class="fa fa-commenting-o" aria-hidden="true"></i>
-        </button>
+        </button></div>
       </form>
+</div>
     <% @lesson.comments.each do |comment| %>
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -56,14 +58,16 @@
                 <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
                  <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
                  <input type="hidden" id="lesson_id" name="lesson_id" placeholder="User" class="form-control" value="<%= @lesson.id %>">
-                 <button class="btn btn-success">
+                 <button class="btn btn-success btn-block">
                    <i class="fa fa-heart-o"></i>
                  </button>
                </form>
             </div>
-        <div><a href="/videos/new" class="btn btn-primary">Add a video</a>
-        <a href="/resources/new" class="btn btn-success">Add a resource or document</a>
-        <a href="/mini_quizzes/new" class="btn btn-info">Add a miniquiz</a></div>
+        <div class="btn-group btn-group-justified">
+          <a href="/videos/new" class="btn btn-primary">Add a video</a>
+          <a href="/resources/new" class="btn btn-success">Add a resource or document</a>
+          <a href="/mini_quizzes/new" class="btn btn-info">Add a miniquiz</a>
+        </div>
 
             <% end %>
           </div>
@@ -90,4 +94,5 @@
         <embed class="panel-body" height="550px" width="450px" src="<%= quiz.embed_address %>">
       <% end  %></dd></dd>
     </div></div>
+</div>
 </div>
