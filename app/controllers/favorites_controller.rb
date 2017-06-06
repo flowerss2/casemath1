@@ -26,7 +26,7 @@ class FavoritesController < ApplicationController
     save_status = @favorite.save
 
     if save_status == true
-      redirect_to("/favorites/#{@favorite.id}", :notice => "Favorite created successfully.")
+      redirect_to("/lessons/#{@favorite.lesson.id}", :notice => "Favorite created successfully.")
     else
       render("favorites/new.html.erb")
     end

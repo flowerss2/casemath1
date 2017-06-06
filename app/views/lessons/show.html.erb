@@ -42,7 +42,26 @@
           </div>
         </div>
       <% end %>
-
+      <% @lesson.favorites.each do |favorite| %>
+      <% if favorite.user.id == current_user.id %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong>This lesson is stored in your favorites.&nbsp;&nbsp;&nbsp;&nbsp; Click here to unlike. &nbsp;&nbsp;&nbsp;&nbsp;<a href="/delete_favorite/<%= @lesson.favorites.find_by(user_id: current_user.id).id%>" class="btn btn-danger">
+        <i class="fa fa-heart"></i>
+      </a>
+            </div>
+            <% else %>
+          <div><form action="/create_favorite" method="post">
+              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+               <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
+               <input type="hidden" id="lesson_id" name="lesson_id" placeholder="User" class="form-control" value="<%= @lesson.id %>">
+               <button class="btn btn-success">
+                 <i class="fa fa-heart-o"></i>
+               </button>
+             </form></div>
+            <% end %>
+          </div>
+        <% end %>
 
 
     </dl>
