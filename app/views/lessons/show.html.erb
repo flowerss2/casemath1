@@ -95,10 +95,9 @@
     </div>
   </div>
     <div class="panel col-md-12">
-      <dt>Resources</dt><div class="col-md-offset-2 col-md-8">
+        <div class="well well-sm">
+          <dt>Resources</dt></div><div class="col-md-offset-2 col-md-8">
       <dd><dd><% @lesson.mini_quizzes.each do |quiz| %>
-        <embed class="panel-body" height="550px" width="800px" src="<%= quiz.embed_address %>">
+        <embed class="panel-body" height="550px" width="800px" src="<%= quiz.embed_address %>"></div></div>
       <% end  %></dd></dd>
-    </div></div>
-</div>
-</div>
+    </div>
