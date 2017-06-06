@@ -6,15 +6,21 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
 
-      <dt>Video</dt>
+      <div class="panel col-md-12">
+        <div class="panel panel-heading">
+          <h2>Video</h3>
+        </div>
       <dd><% @lesson.videos.each do |video| %>
         <embed height="450px" width="800px" src="<%= video.embed_address %>">
-      <% end  %></dd>
+      <% end  %></dd></div>
 
-      <dt>Resources</dt>
+      <div class="panel col-md-12">
+        <div class="panel panel-heading">
+          <h3>Resources</h3>
+        </div>
       <dd><dd><% @lesson.resources.each do |resource| %>
         <embed height="550px" width="800px" src="<%= resource.embed_address %>">
-      <% end  %></dd></dd>
+      <% end  %></dd></dd></div>
 
 <div class="panel">
       <form action="/create_comment" method="post">
@@ -91,7 +97,7 @@
     <div class="panel col-md-12">
       <dt>Resources</dt><div class="col-md-offset-2 col-md-8">
       <dd><dd><% @lesson.mini_quizzes.each do |quiz| %>
-        <embed class="panel-body" height="550px" width="450px" src="<%= quiz.embed_address %>">
+        <embed class="panel-body" height="550px" width="800px" src="<%= quiz.embed_address %>">
       <% end  %></dd></dd>
     </div></div>
 </div>
