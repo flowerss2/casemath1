@@ -29,7 +29,7 @@ class SuggestionsController < ApplicationController
     save_status = @suggestion.save
 
     if save_status == true
-      redirect_to("/suggestions/#{@suggestion.id}", :notice => "Suggestion created successfully.")
+      redirect_to("/lessons", :notice => "Suggestion created successfully.")
     else
       render("suggestions/new.html.erb")
     end
