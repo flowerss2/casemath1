@@ -51,14 +51,20 @@
       </a>
             </div>
             <% else %>
-          <div><form action="/create_favorite" method="post">
-              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-               <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
-               <input type="hidden" id="lesson_id" name="lesson_id" placeholder="User" class="form-control" value="<%= @lesson.id %>">
-               <button class="btn btn-success">
-                 <i class="fa fa-heart-o"></i>
-               </button>
-             </form></div>
+            <div>
+              <form action="/create_favorite" method="post">
+                <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                 <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
+                 <input type="hidden" id="lesson_id" name="lesson_id" placeholder="User" class="form-control" value="<%= @lesson.id %>">
+                 <button class="btn btn-success">
+                   <i class="fa fa-heart-o"></i>
+                 </button>
+               </form>
+            </div>
+        <div><a href="/videos/new" class="btn btn-primary">Add a video</a>
+        <a href="/resources/new" class="btn btn-success">Add a resource or document</a>
+        <a href="/mini_quizzes/new" class="btn btn-info">Add a miniquiz</a></div>
+
             <% end %>
           </div>
         <% end %>
@@ -78,7 +84,10 @@
       </a>
     </div>
   </div>
-  <a href="/videos/new" class="btn btn-primary">Add a video</a>
-  <a href="/resources/new" class="btn btn-success">Add a resource or document</a>
-  <a href="/mini_quizzes/new" class="btn btn-info">Add a miniquiz</a>
+    <div class="panel col-md-12">
+      <dt>Resources</dt><div class="col-md-offset-2 col-md-8">
+      <dd><dd><% @lesson.mini_quizzes.each do |quiz| %>
+        <embed class="panel-body" height="550px" width="450px" src="<%= quiz.embed_address %>">
+      <% end  %></dd></dd>
+    </div></div>
 </div>
