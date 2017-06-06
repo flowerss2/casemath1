@@ -6,23 +6,18 @@
 </div>
 
 <div class="row">
-  <div class="col-md-12">
-    <table class="table table-striped table-hover">
-      <tr>
-        <th>Lesson</th>
-
-        <th>Actions</th>
-      </tr>
+  <div class="col-md-8">
 
       <% @lessons.each do |lesson| %>
-      <tr>
-        <td><a class="btn btn-info" href="/lessons/<%= lesson.id %>"><%= lesson.lesson_name %></a></td>
-
-        <td>
+      <tr><div class="panel panel-default">
+            <div class="panel-heading">
+        <td><a class="btn btn-info" href="/lessons/<%= lesson.id %>"><%= lesson.lesson_name %></a></td></div>
+      <div class="panel-body">
+        <div class="form-group">
           <a href="/lessons/<%= lesson.id %>" class="btn btn-primary">Show</a>
           <a href="/lessons/<%= lesson.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_lesson/<%= lesson.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
-        </td>
+        </div></div></div>
       </tr>
       <% end %>
     </table>
