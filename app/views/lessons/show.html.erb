@@ -7,7 +7,7 @@
     <dl class="dl-horizontal">
 
       <div class="panel col-md-12">
-        <div class="panel panel-heading">
+        <div class="well well-sm">
           <h2>Video</h3>
         </div>
       <dd><% @lesson.videos.each do |video| %>
@@ -15,7 +15,7 @@
       <% end  %></dd></div>
 
       <div class="panel col-md-12">
-        <div class="panel panel-heading">
+        <div class="well well-sm">
           <h3>Resources</h3>
         </div>
       <dd><dd><% @lesson.resources.each do |resource| %>
@@ -30,7 +30,7 @@
                     <!-- Label and input for year -->
           <div class="form-group">
       <label for="comment" class="control-label">
-                        Add a Comment
+                        <h4>Add a Comment</h4>
       </label>
           <input type="text" id="comment" name="body" placeholder="Add a comment..." class="form-control" value="<%= @newcomment.body %>">
           <input name="lesson_id" type="hidden" value="<%= @lesson.id %>">
@@ -54,7 +54,7 @@
       <% if favorite.user.id == current_user.id %>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <strong>This lesson is stored in your favorites.&nbsp;&nbsp;&nbsp;&nbsp; Click here to unlike. &nbsp;&nbsp;&nbsp;&nbsp;<a href="/delete_favorite/<%= @lesson.favorites.find_by(user_id: current_user.id).id%>" class="btn btn-danger">
+            <strong>This lesson is stored in your favorites.&nbsp; Click here to unlike. &nbsp;&nbsp;&nbsp;&nbsp;<a href="/delete_favorite/<%= @lesson.favorites.find_by(user_id: current_user.id).id%>" class="btn btn-danger">
         <i class="fa fa-heart"></i>
       </a>
             </div>
