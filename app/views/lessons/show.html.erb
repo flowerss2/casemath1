@@ -8,7 +8,7 @@
 
       <div class="panel col-md-12">
         <div class="well well-sm">
-          <h2>Video</h3>
+          <h2>Video(s)</h3>
         </div>
       <dd><% @lesson.videos.each do |video| %>
         <embed height="450px" width="800px" src="<%= video.embed_address %>">
@@ -58,7 +58,7 @@
         <i class="fa fa-heart"></i>
       </a>
             </div>
-            <% else %>
+            <% end %>  <% end %>
             <div>
               <form action="/create_favorite" method="post">
                 <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
@@ -75,9 +75,9 @@
           <a href="/mini_quizzes/new" class="btn btn-info">Add a miniquiz</a>
         </div>
 
-            <% end %>
+
           </div>
-        <% end %>
+
 
 
     </dl>
@@ -96,7 +96,7 @@
   </div>
     <div class="panel col-md-12">
         <div class="well well-sm">
-          <dt>Resources</dt></div><div class="col-md-offset-2 col-md-8">
+          <dt>Try the quiz!</dt></div><div class="col-md-offset-2 col-md-8">
       <dd><dd><% @lesson.mini_quizzes.each do |quiz| %>
         <embed class="panel-body" height="550px" width="800px" src="<%= quiz.embed_address %>"></div></div>
       <% end  %></dd></dd>
