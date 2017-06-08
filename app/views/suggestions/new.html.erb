@@ -10,7 +10,7 @@
 
 <div class="page-header">
   <h3>Add Suggestion</h3>
-</div>
+  <p><h5>Help us improve this site! If you see a current lesson that needs improving, please indicate which lesson you'd like to improve below. If you have a suggestion for an entirely new lesson, please select the lesson to which it most closely relates.</h5></p></div>
 
 <div class="row">
   <div class="col-md-12">
@@ -42,7 +42,7 @@
           Link to resource
         </label>
 
-        <input type="text" id="link_to_resource" name="link_to_resource" placeholder="Link to resource" class="form-control" value="<%= @suggestion.link_to_resource %>">
+        <input type="text" id="link_to_resource" name="link_to_resource" placeholder="Please make sure this is viewable as a webpage in a standard browser." class="form-control" value="<%= @suggestion.link_to_resource %>">
       </div>
 
       <!-- Label and input for reason_for_submitting -->
@@ -51,7 +51,7 @@
           Reason for submitting
         </label>
 
-        <textarea id="reason_for_submitting" name="reason_for_submitting" placeholder="Reason for submitting" class="form-control" rows="3"><%= @suggestion.reason_for_submitting %></textarea>
+        <textarea id="reason_for_submitting" name="reason_for_submitting" placeholder="What leads you to submit this? Does the lesson need to be improved? Do you think there's a gap in the current curriculum?" class="form-control" rows="3"><%= @suggestion.reason_for_submitting %></textarea>
       </div>
 
       <!-- Label and input for additional_comments -->
