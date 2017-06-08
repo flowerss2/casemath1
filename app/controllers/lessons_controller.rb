@@ -1,6 +1,7 @@
 class LessonsController < ApplicationController
   def index
     @lessons = Lesson.all
+    @favorites = Favorite.all
 
     render("lessons/index.html.erb")
   end
